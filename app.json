@@ -4,12 +4,17 @@
     "slug": "livestream-sdk52",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/icon-light.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.betoatexpo.livestream-sdk52",
+      "icon": {
+        "dark": "./assets/images/icon-dark.png",
+        "light": "./assets/images/icon-light.png"
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -19,11 +24,16 @@
     },
     "web": {
       "bundler": "metro",
-      "output": "static",
+      "output": "server",
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router",
+      [
+        "expo-router",
+        {
+          "origin": "https://codewithbeto.dev/"
+        }
+      ],
       [
         "expo-splash-screen",
         {
