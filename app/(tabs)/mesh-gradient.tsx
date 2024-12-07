@@ -1,6 +1,6 @@
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
-import { MeshGradientView } from "expo-mesh-gradient";
+// import { MeshGradientView } from "expo-mesh-gradient";
 import { Button, StyleSheet, useColorScheme } from "react-native";
 
 export default function MeshGradient() {
@@ -16,7 +16,7 @@ export default function MeshGradient() {
       <ThemedView
         style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
       >
-        <MeshGradientView
+        {/* <MeshGradientView
           style={StyleSheet.absoluteFill}
           columns={2}
           rows={2}
@@ -27,7 +27,7 @@ export default function MeshGradient() {
             [0.0, 1.0],
             [1.0, 1.0],
           ]}
-        />
+        /> */}
         <ThemedText type="title">Mesh Gradient</ThemedText>
         <Button title="Hello" onPress={fetchHello} />
       </ThemedView>
