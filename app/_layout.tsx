@@ -37,6 +37,13 @@ export default function RootLayout() {
       <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen
+            name="sheet"
+            options={{
+              presentation: "formSheet",
+              sheetAllowedDetents: [0.5, 0.8],
+            }}
+          />
           <Stack.Screen name="+not-found" />
         </Stack>
         <StatusBar style="auto" />

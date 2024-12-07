@@ -1,12 +1,24 @@
 import { Message, useChat } from "@ai-sdk/react";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
+import { useRouter } from "expo-router";
 import { fetch as expoFetch } from "expo/fetch";
-import { View, TextInput, Text, SafeAreaView, FlatList } from "react-native";
+import {
+  View,
+  TextInput,
+  Text,
+  SafeAreaView,
+  FlatList,
+  Pressable,
+} from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-controller";
 
 const MessageComponent = ({ message }: { message: Message }) => {
+  const router = useRouter();
   return (
-    <View
+    <Pressable
+      onLongPress={() => {
+        router.push(`/sheet?message=${message.content}`);
+      }}
       style={{
         boxShadow: "0px 0px 10px 0px rgba(0, 0, 0, 0.1)",
         padding: 8,
@@ -20,7 +32,7 @@ const MessageComponent = ({ message }: { message: Message }) => {
       ) : (
         <Text>{message.content}</Text>
       )}
-    </View>
+    </Pressable>
   );
 };
 
@@ -43,14 +55,11 @@ export default function App() {
         <FlatList
           data={messages}
           contentContainerStyle={{ gap: 8 }}
-          // style={{ flex: 1, borderWidth: 1, borderColor: "red" }}
           renderItem={({ item }) => <MessageComponent message={item} />}
         />
         <View
           style={{
             height: 50,
-            borderWidth: 1,
-            borderColor: "red",
             marginBottom: bottomTabBarHeight,
           }}
         >
